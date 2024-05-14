@@ -3,16 +3,16 @@ import axios from 'axios';
 import { useParams, useNavigate } from 'react-router-dom';
 
 function FichaCharacterPage() {
-  const [character, setCharacter] = useState([]);
+  const [character, setCharacter] = useState(null);
   const params = useParams();
- 
- 
+ console.log(params)
+ console.log(character)
  //lo necesitaremos para volver atras en la `pagina
   const navigate = useNavigate();
 
   useEffect(() => {
     axios
-      .get(`${import.meta.env.VITE_BACKEND_URL}/people/${params.characterID}`)
+      .get(`${import.meta.env.VITE_BACKEND_URL}/pokemon/${params.pokemonCharacterId}`)
       .then((response) => {
         console.log(response);
         setCharacter(response.data);
@@ -20,14 +20,19 @@ function FichaCharacterPage() {
       .catch((error) => {
         console.log(error);
       });
-  }, [params.id]); // Agregamos params.id como dependencia del useEffect
+  }, [params.character]); // Agregamos params.id como dependencia del useEffect
 
+  if (character === null) {
+    console.log(character)
+    return <p>esperando</p>
+  }
   return (
     <div>
-      <div>FichaCharacterPage</div>
-      {character.map((eachCharacter) => {
-        return <li key={eachCharacter.id}>{eachCharacter.id}</li>;
-      })}
+      <div>Ficha DE UN POKEMON</div>
+      <div>
+      <h3>{character.name}</h3>
+      
+         </div>
     </div>
   );
 }
