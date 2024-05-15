@@ -1,10 +1,28 @@
 import React from 'react'
-import "./App.css";
+import { Link } from "react-router-dom"
+
+
 function NotFoundPage() {
   return (
-    <div className="about-page">
-        NotFoundPage</div>
+    <div>
+      
+      <h2>ay te perdistes</h2>
+
+      
+
+      <h5>click para volver</h5>
+
+      <Link to={"/"}>
+      <h5>click para volver</h5>
+      </Link>
+
+    </div>
   )
 }
 
 export default NotFoundPage
+
+
+
+
+

@@ -10,7 +10,7 @@ function Home() {
       
       <div className="portada-btn">
         <Link to={"/CategoriasPage"}>
-          <img src= "src/assets/images/pokeball-logo.png"   alt="pokeball" width={60} />
+        <img src= "src/assets/images/pokeball-logo.png"   alt="pokeball" width={60} />
         </Link>
       </div>
     </div>

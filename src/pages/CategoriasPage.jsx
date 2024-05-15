@@ -38,6 +38,7 @@ function CategoriasPage() {
             <div key={i}>
               <Link to={`/pokemon-por-tipo/${eachCategoria.name}`}>
                 <div key={eachCategoria.name}>
+                <img src= "src/assets/images/pokeball-logo.png"   alt="pokeball" width={60} ></img>
                   <p>{eachCategoria.name}</p>
                 </div>
               </Link>

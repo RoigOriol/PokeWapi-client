@@ -5,8 +5,7 @@ import { useParams, useNavigate } from "react-router-dom";
 function FichaCharacterPage() {
   const [character, setCharacter] = useState(null);
   const params = useParams();
-  console.log(params);
-  console.log(character);
+  
   //lo necesitaremos para volver atras en la `pagina
   const navigate = useNavigate();
 
@@ -29,12 +28,28 @@ function FichaCharacterPage() {
     console.log(character);
     return <p>esperando</p>;
   }
+  
   return (
     <div>
       <div>Ficha DE UN POKEMON</div>
       <div>
+    
         <h3>{character.name}</h3>
+        <p>{character.height/10}</p>
+        <p>{character.wheight}</p>
+        <img height={300} src={character.sprites.front_default} alt="pokemon-image" />
       </div>
+      <div>
+            <button>Favorito</button>
+
+            <button>Añadir Comentario</button>
+
+            <button>Borrar Comentario</button>
+
+            <button>Editar Comentario</button>
+            
+        </div>
+        <button>Atràs</button>
     </div>
   );
 }
