@@ -40,13 +40,13 @@ function FichaCharacterPage() {
         <img height={300} src={character.sprites.front_default} alt="pokemon-image" />
       </div>
       <div>
-            <button>Favorito</button>
+           <p> <button>Favorito</button> </p> <br />
 
-            <button>Añadir Comentario</button>
+           <p>  <button>Añadir Comentario</button> </p><br />
 
-            <button>Borrar Comentario</button>
+           <p>  <button>Borrar Comentario</button> </p><br />
 
-            <button>Editar Comentario</button>
+           <p>  <button>Editar Comentario</button> </p><br />
             
         </div>
         <button>Atràs</button>
