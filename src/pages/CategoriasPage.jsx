@@ -22,9 +22,9 @@ function CategoriasPage() {
       });
   }, []);
 
-    if(categorias===null){
-      return <h3>... cargando</h3>
-    }
+  if (categorias === null) {
+    return <h3>... cargando</h3>;
+  }
 
   return (
     <div>
@@ -33,15 +33,13 @@ function CategoriasPage() {
         {/* Aquí va la lista de todos los tipos de pokemon */}
         {categorias.map((eachCategoria, i) => {
           console.log(eachCategoria);
-              console.log(params)
+          console.log(params);
           return (
             <div key={i}>
-            <Link to={`/pokemon-por-tipo/${eachCategoria.name}`}>
-              {/*{params.pokemonTypeId}*/}
-
-              <div key={eachCategoria.name}>
-                <p>{eachCategoria.name}</p>
-              </div>
+              <Link to={`/pokemon-por-tipo/${eachCategoria.name}`}>
+                <div key={eachCategoria.name}>
+                  <p>{eachCategoria.name}</p>
+                </div>
               </Link>
             </div>
           );

@@ -46,17 +46,15 @@
   position: relative; /* Asegura que el contenedor sea el contexto de referencia */
 }
 .portada img {
-  background-image: url('../src/assets/images/portada.png');
+  background-image: url('../src/assets/images/portada-background.png');
   background-position: 0 0;
   background-repeat: no-repeat;
   background-size: cover;
-  padding-top: 50px;
-  width: 100%; /* Para que la imagen ocupe el ancho completo del contenedor */
-  height: auto; /* La altura se ajustará automáticamente para mantener la proporción */
-  display: block; /* Para evitar espacios no deseados */
+   width: 100%;
+  display: block; 
 
 }
-.about-page{
+.notfound-page{
   background-image: url('../src/assets/images/NotFound-background.png');
   background-position: 0 0;
   background-repeat: no-repeat;
@@ -64,3 +62,23 @@
   padding-top: 50px;
 }
 
+.portada-btn {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.portada-btn button {
+  border: none;
+  background: none;
+  cursor: pointer;
+  padding: 0;
+}
+
+.portada-btn button img {
+  transition: transform 0.3s ease; 
+}
+
+.portada-btn button:hover img {
+  transform: scale(1.1); 
+}

@@ -1,19 +1,20 @@
-import React from 'react'
+import React from 'react';
+import { Link } from 'react-router-dom';
+
+
 
 function Home() {
   return (
-    <div className="contenedor-imagen">
-    <img src="./src/assets/images/portada.png" alt="starwars" />
-
-
-    <div className="portada">
-      <a href="/CategoriasPage">
-        <button className="btn-entrada">Start Wars</button>
-      </a>
+    <div className="portada img">
+      <img src="src/assets/images/portada-background.png" alt="portada" />
+      
+      <div className="portada-btn">
+        <Link to={"/CategoriasPage"}>
+          <img src= "src/assets/images/pokeball-logo.png"   alt="pokeball" width={60} />
+        </Link>
+      </div>
     </div>
-   
-  </div>
-  )
+  );
 }
 
-export default Home
+export default Home;
