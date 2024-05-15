@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import axios from "axios";
 import { useParams, useNavigate } from "react-router-dom";
+import FormComments from "../components/FormComments";
 
 function FichaCharacterPage() {
   const [character, setCharacter] = useState(null);
@@ -39,16 +40,7 @@ function FichaCharacterPage() {
         <p>{character.wheight}</p>
         <img height={300} src={character.sprites.front_default} alt="pokemon-image" />
       </div>
-      <div>
-           <p> <button>Favorito</button> </p> <br />
-
-           <p>  <button>Añadir Comentario</button> </p><br />
-
-           <p>  <button>Borrar Comentario</button> </p><br />
-
-           <p>  <button>Editar Comentario</button> </p><br />
-            
-        </div>
+   <FormComments />
         <button>Atràs</button>
     </div>
   );

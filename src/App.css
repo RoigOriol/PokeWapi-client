@@ -45,13 +45,13 @@
   display: inline-block; /* Para que el contenedor se ajuste automáticamente a la altura de la imagen */
   position: relative; /* Asegura que el contenedor sea el contexto de referencia */
 }
-.portada img {
+.portada-img {
   background-image: url('../src/assets/images/portada-background.png');
-  background-position: 0 0;
+
+  background-size: 100% auto;
+  background-image: cover;
   background-repeat: no-repeat;
-  background-size: cover;
-   width: 100%;
-  display: block; 
+  margin: 0;
 
 }
 .notfound-page{
@@ -77,6 +77,7 @@
 
 .portada-btn button img {
   transition: transform 0.3s ease; 
+  background-image: url('../src/assets/images/pokeball-logo.png');
 }
 
 .portada-btn button:hover img {

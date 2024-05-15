@@ -33,7 +33,7 @@ console.log(eachPokemon)
           <Link to={`/FichaCharacterPage/${eachPokemon.pokemon.name}`}>
           
           <h3>{eachPokemon.pokemon.name}</h3>
-          <p>{eachPokemon.pokemon.name}</p>
+          
           </Link>
 
           </div>
