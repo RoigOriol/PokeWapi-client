@@ -10,6 +10,9 @@ function FichaCharacterPage() {
   //lo necesitaremos para volver atras en la `pagina
   const navigate = useNavigate();
 
+  
+  const [chats, setChats] = useState([]);
+
   useEffect(() => {
     axios
       .get(
@@ -37,7 +40,8 @@ function FichaCharacterPage() {
     
         <h3>{character.name}</h3>
         <p>{character.height/10}</p>
-        <p>{character.wheight}</p>
+        <p>{character.weight}</p>
+        <p>{character.id}</p>
         <img height={300} src={character.sprites.front_default} alt="pokemon-image" />
       </div>
    <FormComments />
@@ -47,3 +51,4 @@ function FichaCharacterPage() {
 }
 
 export default FichaCharacterPage;
+

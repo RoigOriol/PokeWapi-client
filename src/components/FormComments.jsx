@@ -1,17 +1,22 @@
 import React, { useState } from "react";
-import { useNavigate } from "react-router-dom";
+import { useNavigate, useParams } from "react-router-dom";
 import axios from "axios";
 
 
 function FormComments() {
+  const params = useParams()
+  
   const navigate = useNavigate();
+  
   const [comment, setComment] = useState("");
+  const [pokemonId, setPokemonId] = useState("");
 
   const handleSubmit = (e) => {
     e.preventDefault();
 
     const newComment = {
       comment,
+      pokemonId: `${params.id}`,
     };
 
     console.log("Nuevo comentario:", newComment);
