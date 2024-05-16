@@ -23,7 +23,7 @@ function AllCharactersPage() {
 
   return (
     <div>
-      <h1>TODA LA LISTA de UN solo tipo</h1>
+      
       {pokemonList.map((eachPokemon, i)=>{
 console.log(eachPokemon) 
         return (
@@ -32,8 +32,8 @@ console.log(eachPokemon)
 
           <Link to={`/FichaCharacterPage/${eachPokemon.pokemon.name}`}>
           
-          <h3>{eachPokemon.pokemon.name}</h3>
           
+          <h3>{eachPokemon.pokemon.name.charAt(0).toUpperCase() + eachPokemon.pokemon.name.slice(1)}</h3>
           </Link>
 
           </div>

@@ -12,7 +12,7 @@ function FichaCharacterPage() {
 
   useEffect(() => {
     getData();
-  }, []); // []
+  }, []);
 
   const getData = () => {
     axios
@@ -31,7 +31,7 @@ function FichaCharacterPage() {
         console.log(error);
       });
   };
-///?id=${params.id}
+
 
 
   if (character === null) {
@@ -43,39 +43,41 @@ function FichaCharacterPage() {
           
     axios.delete(`${import.meta.env.VITE_SERVER_URL}/chats/${id}`)
       .then(() => {
-        navigate(`/FichaCharacterPage/${pokemonId}`)
+        navigate(0)
       })
       .catch((error) => {
         console.log(error);
-      });
+      },[]);
   
 };
-
+console.log(character.id)
   return (
-    <div>
+    <div className="card">
+    <div className="card-content">
+    <h3>{character.name.charAt(0).toUpperCase() + character.name.slice(1)}</h3>
+
+      <p>Height: {character.height/10} m</p>
+      <p>Weight: {character.weight} kg</p>
+      <p>ID: {character.id}</p>
       
-      <div>
-        <h3>{character.name}</h3>
-        <p>{character.height/10}</p>
-        <p>{character.weight}</p>
-        <p>{character.id}</p>
-        <img height={300} src={character.sprites.front_default} alt="pokemon-image" />
-      </div>
-      {/* Aquí deberías usar .map para renderizar los comentarios */}
-      {chats.map((eachComment, index) => (
-    <div key={index} data-id={eachComment.id}>
-        <p>{eachComment.comment}</p>
-        <button onClick={() => deleteComment(eachComment.id,character.name)}>Delete</button>
+      <p>Type: {character.type}</p>
+      <img src={character.sprites.front_default} alt="pokemon" />
     </div>
-))}
-
-
-      <FormComments pokemonId={character.id} getData={getData} chats={chats}/>
-      
+    <div className="card-comments">
+      {chats.map((eachComment, index) => (
+        <div key={index} data-id={eachComment.id}>
+          <p>{eachComment.comment}</p>
+          <button onClick={() => deleteComment(eachComment.id, character.name)}>Delete</button>
+        </div>
+      ))}
+    </div>
+    <FormComments pokemonId={character.id} getData={getData} chats={chats}/>
+    <div className="back-button">
       <Link to="/CategoriasPage">
-        <button>Atràs</button>
+        <button>Back</button>
       </Link>
     </div>
+  </div>
   );
 }
 

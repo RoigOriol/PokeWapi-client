@@ -1,28 +1,16 @@
-import React from 'react'
-import { Link } from "react-router-dom"
-
+import React from 'react';
+import { Link } from "react-router-dom";
 
 function NotFoundPage() {
   return (
-    <div>
+    <div className="notfound-container">
+      <h2>Estas perdido</h2>
       
-      <h2>ay te perdistes</h2>
-
-      
-
-      <h5>click para volver</h5>
-
       <Link to={"/"}>
-      <h5>click para volver</h5>
+        <h5>click para volver</h5>
       </Link>
-
     </div>
-  )
+  );
 }
 
-export default NotFoundPage
-
-
-
-
-
+export default NotFoundPage;

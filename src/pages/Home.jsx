@@ -4,13 +4,10 @@ import { Link } from 'react-router-dom';
 
 function Home() {
   return (
-    <div>
-      <div className="portada-img">
-        
-      </div>
+    <div className="portada">
       <div className="portada-btn">
         <Link to={"/CategoriasPage"}>
-          <img src="/assets/images/pokeball-logo.png" alt="pokeball" width={60} />
+          <img src="/assets/images/pokeball-logo.png" alt="pokeball" width={80} />
         </Link>
       </div>
     </div>
