@@ -40,20 +40,7 @@ function FormComments(props) {
       });
     };
       
-    const deleteComment = () => {
-      
-      
-       
-        axios.delete(`${import.meta.env.VITE_SERVER_URL}/chats/comment`)
-          .then(() => {
-            navigate("/FichaCharacterPage")
-          })
-          .catch((error) => {
-            console.log(error);
-          });
-      
-    };
-    
+
       
 
      
@@ -78,7 +65,7 @@ function FormComments(props) {
       
     </div>
         <button type="submit">Submit</button>
-        {/*<button onClick={deleteComment}>Delete</button>*/}
+        
 
         
       </form>

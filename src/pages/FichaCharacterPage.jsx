@@ -39,9 +39,21 @@ function FichaCharacterPage() {
     return <p>esperando</p>;
   }
 
+  const deleteComment = (id,pokemonId) => {
+          
+    axios.delete(`${import.meta.env.VITE_SERVER_URL}/chats/${id}`)
+      .then(() => {
+        navigate(`/FichaCharacterPage/${pokemonId}`)
+      })
+      .catch((error) => {
+        console.log(error);
+      });
+  
+};
+
   return (
     <div>
-      <div>Ficha DE UN POKEMON</div>
+      
       <div>
         <h3>{character.name}</h3>
         <p>{character.height/10}</p>
@@ -50,12 +62,13 @@ function FichaCharacterPage() {
         <img height={300} src={character.sprites.front_default} alt="pokemon-image" />
       </div>
       {/* Aquí deberías usar .map para renderizar los comentarios */}
-      {chats.map((eachComment) => {
-        return <p>{eachComment.comment}</p>
-        
-        
-        
-      })}
+      {chats.map((eachComment, index) => (
+    <div key={index} data-id={eachComment.id}>
+        <p>{eachComment.comment}</p>
+        <button onClick={() => deleteComment(eachComment.id,character.name)}>Delete</button>
+    </div>
+))}
+
 
       <FormComments pokemonId={character.id} getData={getData} chats={chats}/>
       
