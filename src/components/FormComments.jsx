@@ -4,6 +4,8 @@ import axios from "axios";
 
 
 function FormComments(props) {
+  console.log(props);
+
   const params = useParams()
   
   const navigate = useNavigate();
@@ -14,10 +16,10 @@ function FormComments(props) {
   //comprobar si estan incluidos en params y como llegar a ellos
   const handleSubmit = (e) => {
     e.preventDefault();
-
+  
     const newComment = {
-      comment,
-      pokemonId, 
+      comment: comment,
+      pokemonId: props.pokemonId,
     };
       //console.log(params.pokemonCharacterId)
     console.log("Nuevo comentario:", newComment);
@@ -35,29 +37,33 @@ function FormComments(props) {
       .catch((error) => {
         console.log(error);
       });
+
+      {/*const handleDelete= async () => {
+        try {
+          await axios.delete()
+        }
+      }*/}
+
   };
 
   return (
     <div>
       <h3>Add Comment</h3>
       <form onSubmit={handleSubmit}>
-        <label>Comentario:</label>
+        
         <textarea
           type="text"
           name="comment"
           value={comment}
           
-          onChange={(e) => setComment(e.target.value)}
+          onChange={(e) => setComment(e.target.value)} 
+         
           
         />
     <div>
       {/*aqui recibimos todos los comentarios, los traemos
       a traves del componente Comentarios?*/}
-      <h2>Todos los comentarios</h2>
-      <textarea>
-        
-        
-      </textarea>
+      
     </div>
         <button type="submit">Submit</button>
         <button type="submit">Delete</button>

@@ -12,7 +12,6 @@ function FichaCharacterPage() {
 
   useEffect(() => {
     getData();
-    getChat();
   }, []); // []
 
   const getData = () => {
@@ -20,24 +19,20 @@ function FichaCharacterPage() {
       .get(`${import.meta.env.VITE_BACKEND_URL}/pokemon/${params.pokemonCharacterId}`)
       .then((response) => {
         console.log(response);
-        setCharacter(response.data);
+        setCharacter(response.data);   
+        return axios
+      .get(`${import.meta.env.VITE_SERVER_URL}/chats?pokemonId=${response.data.id}`)
+      .then((response) => {
+          setChat(response.data);
+          console.log(response.data)
+        })
       })
       .catch((error) => {
         console.log(error);
       });
   };
 ///?id=${params.id}
-  const getChat = () => {
-    axios
-      .get(`${import.meta.env.VITE_SERVER_URL}/chats`)
-      .then((response) => {
-        setChat(response.data);
-        console.log(response.data)
-      })
-      .catch((error) => {
-        console.log(error);
-      });
-  };
+
 
   if (character === null) {
     console.log(character);
@@ -62,7 +57,7 @@ function FichaCharacterPage() {
         
       })}
 
-      <FormComments getData={getData} getChat={getChat} />
+      <FormComments pokemonId={character.id} />
       
       <Link to="/CategoriasPage">
         <button>Atràs</button>
