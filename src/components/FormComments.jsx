@@ -5,7 +5,7 @@ import axios from "axios";
 
 function FormComments(props) {
   console.log(props);
-
+  console.log(props.chats)
   const params = useParams()
   
   const navigate = useNavigate();
@@ -23,7 +23,7 @@ function FormComments(props) {
     };
       //console.log(params.pokemonCharacterId)
     console.log("Nuevo comentario:", newComment);
-
+    
     axios
       .post(`${import.meta.env.VITE_SERVER_URL}/chats`, newComment)
       .then(() => {
@@ -33,23 +33,35 @@ function FormComments(props) {
         //navigate("/FichaCharacterPage");
         //corregir navigate para volver a pagina org de FichaCharacterPage
         props.getData()
+
       })
       .catch((error) => {
         console.log(error);
       });
+    };
+      
+    const deleteComment = () => {
+      
+      
+       
+        axios.delete(`${import.meta.env.VITE_SERVER_URL}/chats/comment`)
+          .then(() => {
+            navigate("/FichaCharacterPage")
+          })
+          .catch((error) => {
+            console.log(error);
+          });
+      
+    };
+    
+      
 
-      {/*const handleDelete= async () => {
-        try {
-          await axios.delete()
-        }
-      }*/}
-
-  };
+     
 
   return (
     <div>
       <h3>Add Comment</h3>
-      <form onSubmit={handleSubmit}>
+      <form onSubmit={handleSubmit} >
         
         <textarea
           type="text"
@@ -66,8 +78,9 @@ function FormComments(props) {
       
     </div>
         <button type="submit">Submit</button>
-        <button type="submit">Delete</button>
-        <button type="submit">Edit</button>
+        {/*<button onClick={deleteComment}>Delete</button>*/}
+
+        
       </form>
     </div>
   );

@@ -57,7 +57,7 @@ function FichaCharacterPage() {
         
       })}
 
-      <FormComments pokemonId={character.id} />
+      <FormComments pokemonId={character.id} getData={getData} chats={chats}/>
       
       <Link to="/CategoriasPage">
         <button>Atràs</button>
