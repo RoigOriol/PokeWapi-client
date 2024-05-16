@@ -9,6 +9,7 @@ import { useParams } from "react-router-dom";
 
 function CategoriasPage() {
   const [categorias, setCategorias] = useState(null);
+
   const params = useParams();
   useEffect(() => {
     axios
@@ -42,10 +43,15 @@ function CategoriasPage() {
                   <p>{eachCategoria.name}</p>
                 </div>
               </Link>
+              
             </div>
           );
         })}
+        <Link to="/" >
+        <button>Home</button>
+        </Link >
       </div>
+
     </div>
   );
 }

@@ -15,7 +15,7 @@ function App() {
       <Route path="/" element={<Home />} />
       <Route path="/pokemon-por-tipo/:pokemonTypeId" element={<AllCharactersPage />} />
       <Route path="/FichaCharacterPage/:pokemonCharacterId" element={<FichaCharacterPage />} />
-      {/*<Route path="*" element={<NotFoundPage />} />*/}
+      <Route path="*" element={<NotFoundPage />} />
     </Routes>
   );
 }
