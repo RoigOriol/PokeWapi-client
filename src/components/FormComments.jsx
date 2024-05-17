@@ -47,7 +47,7 @@ function FormComments(props) {
 
   return (
     <div>
-      <h3>Add Comment</h3>
+      <h5>Add Comment</h5>
       <form onSubmit={handleSubmit} >
         
         <textarea
@@ -60,8 +60,7 @@ function FormComments(props) {
           
         />
     <div>
-      {/*aqui recibimos todos los comentarios, los traemos
-      a traves del componente Comentarios?*/}
+   
       
     </div>
         <button type="submit">Submit</button>

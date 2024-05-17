@@ -35,13 +35,8 @@ function AllCharactersPage() {
             </Link>
           </div>
         ))}
-      </div>
-      
-        <Link to={`/CategoriasPage`}>
-          <button className="button">Volver</button>
-        </Link>
-        <footer className="footer">
-      </footer>
+       </div>
+     
     </div>
   );
 }

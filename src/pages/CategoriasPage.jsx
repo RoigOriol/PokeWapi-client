@@ -4,7 +4,9 @@ import { Routes, Route } from "react-router-dom";
 import axios from "axios";
 import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
-
+import github from "../assets/images/logotipo-de-github.png"
+import abaout from  "../assets/images/about-logo.png"
+import { Spinner } from "react-bootstrap/esm";
 function CategoriasPage() {
   const [categorias, setCategorias] = useState(null);
 
@@ -22,7 +24,9 @@ function CategoriasPage() {
   }, []);
 
   if (categorias === null) {
-    return <h3>... cargando</h3>;
+    return <Spinner animation="border" role="status">
+    <span className="visually-hidden">Loading...</span>
+  </Spinner>;
   }
 
   return (
@@ -45,10 +49,14 @@ function CategoriasPage() {
   <Link to="/">
     <button className="button">Home</button>
   </Link>
-  <footer className="footer">
-
-    
-  </footer>
+  <div className="footer">
+        <Link to="https://github.com/RoigOriol/PokeWapi-client" target="_blank">
+          <img src={github} alt="Left" className="footer-image-left" />
+        </Link>
+        <Link to="/AboutPage">
+          <img src={abaout} alt="Right" className="footer-image-right" />
+        </Link>
+      </div>
 </div>
 
   );
