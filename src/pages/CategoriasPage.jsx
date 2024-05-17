@@ -5,8 +5,6 @@ import axios from "axios";
 import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 
-
-
 function CategoriasPage() {
   const [categorias, setCategorias] = useState(null);
 
@@ -31,13 +29,12 @@ function CategoriasPage() {
 <div className="categorias-container">
   <div className="categorias-grid">
     {categorias.map((eachCategoria, i) => {
-      console.log(eachCategoria);
-      console.log(params);
+      console.log(eachCategoria.name);
       return (
         <div key={i} className="categoria-item">
           <Link to={`/pokemon-por-tipo/${eachCategoria.name}`}>
             <div key={eachCategoria.name}>
-              <img src="src/assets/images/pokeball-logo.png" alt="pokeball" width={60} />
+              <img src={`images/${eachCategoria.name}-logo.png`} alt="pokeball" width={60} />
               <p>{eachCategoria.name}</p>
             </div>
           </Link>

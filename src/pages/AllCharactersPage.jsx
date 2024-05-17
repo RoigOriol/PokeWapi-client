@@ -23,10 +23,9 @@ function AllCharactersPage() {
   }
 
   return (
-    <div className="pokemon-list-container">
-      {pokemonList.map((eachPokemon, i) => {
-        console.log(eachPokemon);
-        return (
+    <div>
+      <div className="pokemon-list-container">
+        {pokemonList.map((eachPokemon, i) => (
           <div className="pokemon-list" key={i}>
             <Link to={`/FichaCharacterPage/${eachPokemon.pokemon.name}`}>
               <h5>
@@ -35,8 +34,13 @@ function AllCharactersPage() {
               </h5>
             </Link>
           </div>
-        );
-      })}<button className="back-button">Volver</button>
+        ))}
+      </div>
+      <footer className="footer">
+        <Link to={`/CategoriasPage`}>
+          <button className="button">Volver</button>
+        </Link>
+      </footer>
     </div>
   );
 }

@@ -43,7 +43,7 @@ function FichaCharacterPage() {
           
     axios.delete(`${import.meta.env.VITE_SERVER_URL}/chats/${id}`)
       .then(() => {
-        navigate(0)
+       getData() //navigate()
       })
       .catch((error) => {
         console.log(error);
@@ -77,6 +77,9 @@ function FichaCharacterPage() {
     <FormComments pokemonId={character.id} getData={getData} chats={chats}/>
     <div className="back-button">
       <Link to="/CategoriasPage">
+        <button>Vuelve a todos los tipos</button>
+      </Link>
+      <Link to="/AllCharacterPage">
         <button>Back</button>
       </Link>
     </div>
