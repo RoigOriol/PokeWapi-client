@@ -8,7 +8,7 @@
 
 .portada {
   height: 900px;
-  background-image: url("src/assets/images/portada_3.png");
+  background-image: url("images/portada_3.png");
   background-size: 100% auto;
   background-image: cover;
   background-repeat: no-repeat;
@@ -55,7 +55,7 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-  background-image: url("src/assets/images/categorias_background.jpg"); 
+  background-image: url("images/categorias_background.jpg"); 
   background-size: cover;
   background-repeat: no-repeat;
   background-position: center;
