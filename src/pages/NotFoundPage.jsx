@@ -1,14 +1,16 @@
-import React from 'react';
+import React from "react";
 import { Link } from "react-router-dom";
 
 function NotFoundPage() {
   return (
     <div className="notfound-container">
-      <h2>Estas perdido</h2>
-      
-      <Link to={"/"}>
-        <h5>click para volver</h5>
-      </Link>
+      <div>
+        <h2>Estas perdido</h2>
+
+        <Link to={"/"}>
+          <p className="button">Atràs</p>
+        </Link>
+      </div>
     </div>
   );
 }

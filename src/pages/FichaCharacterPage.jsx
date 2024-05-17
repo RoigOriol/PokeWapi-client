@@ -50,7 +50,8 @@ function FichaCharacterPage() {
       },[]);
   
 };
-console.log(character.id)
+
+
   return (
     <div className="card">
     <div className="card-content">
@@ -60,8 +61,10 @@ console.log(character.id)
       <p>Weight: {character.weight} kg</p>
       <p>ID: {character.id}</p>
       
-      <p>Type: {character.type}</p>
-      <img src={character.sprites.front_default} alt="pokemon" />
+      <p>Type: {character.types[0].type.name}</p>
+      
+      <img src={character.sprites.front_default} style={{ height: '100px'}} alt="pokemon" />
+
     </div>
     <div className="card-comments">
       {chats.map((eachComment, index) => (
