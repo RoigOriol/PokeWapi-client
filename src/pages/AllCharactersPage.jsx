@@ -23,23 +23,24 @@ function AllCharactersPage() {
   }
 
   return (
-    <div>
-      <div className="pokemon-list-container">
+    <div className="categorias-container">
+      <div className="categorias-grid">
         {pokemonList.map((eachPokemon, i) => (
-          <div className="pokemon-list" key={i}>
+          <div  className="categoria-item"key={i}>
             <Link to={`/FichaCharacterPage/${eachPokemon.pokemon.name}`}>
-              <h5>
+              <p>
                 {eachPokemon.pokemon.name.charAt(0).toUpperCase() +
                   eachPokemon.pokemon.name.slice(1)}
-              </h5>
+              </p>
             </Link>
           </div>
         ))}
       </div>
-      <footer className="footer">
+      
         <Link to={`/CategoriasPage`}>
           <button className="button">Volver</button>
         </Link>
+        <footer className="footer">
       </footer>
     </div>
   );

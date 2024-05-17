@@ -11,8 +11,8 @@ import AboutPage from "./pages/AboutPage";
 function App() {
   return (
     <Routes>
-      <Route path="/CategoriasPage" element={<CategoriasPage />} />
       <Route path="/" element={<Home />} />
+      <Route path="/CategoriasPage" element={<CategoriasPage />} />
       <Route path="/pokemon-por-tipo/:pokemonTypeId" element={<AllCharactersPage />} />
       <Route path="/FichaCharacterPage/:pokemonCharacterId" element={<FichaCharacterPage />} />
       <Route path="/AboutPage" element={<AboutPage />} />

@@ -62,7 +62,7 @@ body {
   background-repeat: no-repeat;
   background-position: center;
   max-height: 100vh;
-  
+  background-color: black;
 }
 
 .categorias-grid {

@@ -45,6 +45,10 @@ function CategoriasPage() {
   <Link to="/">
     <button className="button">Home</button>
   </Link>
+  <footer className="footer">
+
+    
+  </footer>
 </div>
 
   );
