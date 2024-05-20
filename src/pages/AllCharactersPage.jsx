@@ -12,8 +12,8 @@ function AllCharactersPage() {
     axios
       .get(`${import.meta.env.VITE_BACKEND_URL}/type/${type.pokemonTypeId}`)
       .then((response) => {
-        console.log(response);
-        setPokemonList(response.data.pokemon);
+        console.log(response.data);
+        setPokemonList(response.data.pokemon); 
       });
   }, []);
 
@@ -23,22 +23,29 @@ function AllCharactersPage() {
   }
 
   return (
+    
     <div className="categorias-container">
       <div className="categorias-grid">
+      
         {pokemonList.map((eachPokemon, i) => (
+         
           <div  className="categoria-item"key={i}>
+             
             <Link to={`/FichaCharacterPage/${eachPokemon.pokemon.name}`}>
+            
               <p>
                 {eachPokemon.pokemon.name.charAt(0).toUpperCase() +
                   eachPokemon.pokemon.name.slice(1)}
               </p>
             </Link>
+            
           </div>
+         
         ))}
        </div>
-     
+       
     </div>
   );
 }
-console.log();
+
 export default AllCharactersPage;

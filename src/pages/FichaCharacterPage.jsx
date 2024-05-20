@@ -23,6 +23,7 @@ function FichaCharacterPage() {
       .then((response) => {
         console.log(response);
         setCharacter(response.data);
+
         return axios
           .get(
             `${import.meta.env.VITE_SERVER_URL}/chats?pokemonId=${
@@ -74,7 +75,7 @@ function FichaCharacterPage() {
 
         <img
           src={character.sprites.front_default}
-          style={{ height: "100px" }}
+          style={{ height: "200px" }}
           alt="pokemon"
         />
       </div>
@@ -82,7 +83,8 @@ function FichaCharacterPage() {
         {chats.map((eachComment, index) => (
           <div key={index} data-id={eachComment.id}>
             <p>{eachComment.comment}</p>
-            <button style={{borderRadius:"5px"}}
+            <button
+              style={{ borderRadius: "5px" }}
               onClick={() => deleteComment(eachComment.id, character.name)}
             >
               Delete
@@ -98,9 +100,9 @@ function FichaCharacterPage() {
       </Link>
       <br />
 
-      <Link to="/AllCharacterPage">
-        <button style={{ borderRadius: "5px" }}>Back</button>
-      </Link>
+      <button onClick={() => navigate(-1)} style={{ borderRadius: "5px" }}>
+        Back
+      </button>
     </div>
   );
 }
