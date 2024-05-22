@@ -5,7 +5,7 @@ import axios from "axios";
 import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import github from "../assets/images/logotipo-de-github.png"
-import abaout from  "../assets/images/about-logo.png"
+import about from  "../assets/images/about-logo.png"
 import { Spinner } from "react-bootstrap/esm";
 function CategoriasPage() {
   const [categorias, setCategorias] = useState(null);
@@ -28,6 +28,8 @@ function CategoriasPage() {
     <span className="visually-hidden">Loading...</span>
   </Spinner>;
   }
+ 
+
 
   return (
 <div className="categorias-container">
@@ -36,13 +38,14 @@ function CategoriasPage() {
       console.log(eachCategoria.name);
       return (
         <div key={i} className="categoria-item">
-          <Link to={`/pokemon-por-tipo/${eachCategoria.name}`}>
-            <div key={eachCategoria.name}>
-              <img src={`images/${eachCategoria.name}-logo.png`} alt="pokeball" width={60} />
-              <p>{eachCategoria.name}</p>
-            </div>
-          </Link>
-        </div>
+        <Link to={`/pokemon-por-tipo/${eachCategoria.name}`} style={{ textDecoration: 'none', color: 'inherit' }}>
+          <div key={eachCategoria.name}>
+            <img src={`images/${eachCategoria.name}-logo.png`} alt="pokeball" width={60} />
+            <p><strong>{eachCategoria.name.charAt(0).toUpperCase() + eachCategoria.name.slice(1)}</strong></p>
+          </div>
+        </Link>
+      </div>
+      
       );
     })}
   </div>
@@ -54,7 +57,7 @@ function CategoriasPage() {
           <img src={github} alt="Left" className="footer-image-left" />
         </Link>
         <Link to="/AboutPage">
-          <img src={abaout} alt="Right" className="footer-image-right" />
+          <img src={about} alt="Right" className="footer-image-right" />
         </Link>
       </div>
 </div>

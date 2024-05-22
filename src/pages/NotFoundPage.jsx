@@ -5,7 +5,7 @@ function NotFoundPage() {
   return (
     <div className="notfound-container">
       <div>
-        <h2>Estas perdido</h2>
+        
 
         <Link to={"/"}>
           <p className="button">Atràs</p>

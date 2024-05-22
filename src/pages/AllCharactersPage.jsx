@@ -1,11 +1,11 @@
-import React, { useEffect, useState } from "react";
-import { Link } from "react-router-dom";
+import React, { useEffect, useState} from "react";
+import { Link,  useNavigate  } from "react-router-dom";
 import axios from "axios";
 import { useParams } from "react-router-dom";
 
 function AllCharactersPage() {
   const type = useParams();
-
+  const navigate = useNavigate();
   const [pokemonList, setPokemonList] = useState([]);
   console.log(type);
   useEffect(() => {
@@ -31,19 +31,21 @@ function AllCharactersPage() {
          
           <div  className="categoria-item"key={i}>
              
-            <Link to={`/FichaCharacterPage/${eachPokemon.pokemon.name}`}>
+            <Link to={`/FichaCharacterPage/${eachPokemon.pokemon.name}`}style={{ textDecoration: 'none', color: 'inherit' }}>
             
-              <p>
+              <p><strong>
                 {eachPokemon.pokemon.name.charAt(0).toUpperCase() +
                   eachPokemon.pokemon.name.slice(1)}
-              </p>
+              </strong></p>
             </Link>
             
           </div>
          
         ))}
        </div>
-       
+       <button onClick={() => navigate(-1)} style={{ borderRadius: "5px" }}>
+        Back
+      </button>
     </div>
   );
 }

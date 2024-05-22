@@ -3,6 +3,7 @@ import axios from "axios";
 import { useParams, useNavigate, Link } from "react-router-dom";
 import FormComments from "../components/FormComments";
 import { Spinner } from "react-bootstrap/esm";
+
 function FichaCharacterPage() {
   const [character, setCharacter] = useState(null);
   const [chats, setChat] = useState([]);
@@ -61,50 +62,65 @@ function FichaCharacterPage() {
   };
 
   return (
-    <div className="card">
-      <div className="card-content">
+    <div className="body-ficha-caracter">
+      <div className="ficha-caracter">
         <h3>
           {character.name.charAt(0).toUpperCase() + character.name.slice(1)}
         </h3>
-
-        <p>Height: {character.height / 10} m</p>
-        <p>Weight: {character.weight} kg</p>
-        <p>ID: {character.id}</p>
-
-        <p>Type: {character.types[0].type.name}</p>
-
+  
+        <p>
+          <strong>Height:</strong> {character.height / 10} m
+        </p>
+        <p>
+          <strong>Weight: </strong>
+          {character.weight} kg
+        </p>
+        <p>
+          <strong>ID:</strong> {character.id}
+        </p>
+        <p>
+          <strong>Type: </strong>
+          {character.types[0].type.name}
+        </p>
+  
         <img
           src={character.sprites.front_default}
           style={{ height: "200px" }}
           alt="pokemon"
         />
+  
+        <div className="card-comments">
+          {chats.map((eachComment, index) => (
+            <div key={index} data-id={eachComment.id}>
+              <p>{eachComment.comment}</p>
+              <button
+                style={{ borderRadius: "5px" }}
+                onClick={() => deleteComment(eachComment.id, character.name)}
+              >
+                Delete
+              </button>
+            </div>
+          ))}
+        </div>
+  
+        <FormComments
+          pokemonId={character.id}
+          getData={getData}
+          chats={chats}
+        />
       </div>
-      <div className="card-comments">
-        {chats.map((eachComment, index) => (
-          <div key={index} data-id={eachComment.id}>
-            <p>{eachComment.comment}</p>
-            <button
-              style={{ borderRadius: "5px" }}
-              onClick={() => deleteComment(eachComment.id, character.name)}
-            >
-              Delete
-            </button>
-            <br />
-          </div>
-        ))}
-      </div>
-      <FormComments pokemonId={character.id} getData={getData} chats={chats} />
-
       <Link to="/CategoriasPage">
         <button style={{ borderRadius: "5px" }}>Todos los tipos</button>
       </Link>
       <br />
-
+  
       <button onClick={() => navigate(-1)} style={{ borderRadius: "5px" }}>
         Back
       </button>
     </div>
   );
+  
+  
 }
 
 export default FichaCharacterPage;
