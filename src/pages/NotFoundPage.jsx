@@ -8,7 +8,7 @@ function NotFoundPage() {
         
 
         <Link to={"/"}>
-          <p className="button">Atràs</p>
+          <p className="button">Back</p>
         </Link>
       </div>
     </div>

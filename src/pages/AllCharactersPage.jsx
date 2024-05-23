@@ -10,10 +10,10 @@ function AllCharactersPage() {
   console.log(type);
   useEffect(() => {
     axios
-      .get(`${import.meta.env.VITE_BACKEND_URL}/type/${type.pokemonTypeId}`)
-      .then((response) => {
-        console.log(response.data);
-        setPokemonList(response.data.pokemon); 
+    .get(`${import.meta.env.VITE_BACKEND_URL}/type/${type.pokemonTypeId}?limit=18`)
+    .then((response) => {
+      console.log(response.data);
+      setPokemonList(response.data.pokemon.slice(0, 18));
       });
   }, []);
 
@@ -43,7 +43,7 @@ function AllCharactersPage() {
          
         ))}
        </div>
-       <button onClick={() => navigate(-1)} style={{ borderRadius: "5px" }}>
+       <button class="button"onClick={() => navigate(-1)} >
         Back
       </button>
     </div>

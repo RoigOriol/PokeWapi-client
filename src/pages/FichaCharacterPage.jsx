@@ -94,7 +94,7 @@ function FichaCharacterPage() {
             <div key={index} data-id={eachComment.id}>
               <p>{eachComment.comment}</p>
               <button
-                style={{ borderRadius: "5px" }}
+                class="button"
                 onClick={() => deleteComment(eachComment.id, character.name)}
               >
                 Delete
@@ -110,11 +110,11 @@ function FichaCharacterPage() {
         />
       </div>
       <Link to="/CategoriasPage">
-        <button style={{ borderRadius: "5px" }}>Todos los tipos</button>
+        <button class="button">All types</button>
       </Link>
       <br />
   
-      <button onClick={() => navigate(-1)} style={{ borderRadius: "5px" }}>
+      <button class="button" onClick={() => navigate(-1)}>
         Back
       </button>
     </div>

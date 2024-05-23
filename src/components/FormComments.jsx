@@ -48,7 +48,7 @@ function FormComments(props) {
           onChange={(e) => setComment(e.target.value)}
         />
         <div></div>
-        <button type="submit">Submit</button>
+        <button class="button" type="submit">Submit</button>
       </form>
     </div>
   );

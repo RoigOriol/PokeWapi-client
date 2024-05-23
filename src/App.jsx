@@ -8,6 +8,7 @@ import FichaCharacterPage from "./pages/FichaCharacterPage";
 import NotFoundPage from "./pages/NotFoundPage";
 import AboutPage from "./pages/AboutPage";
 
+
 function App() {
   return (
     <Routes>
