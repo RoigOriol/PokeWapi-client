@@ -41,11 +41,11 @@ function AllCharactersPage() {
             
           </div>
          
-        ))}
-       </div>
-       <button class="button"onClick={() => navigate(-1)} >
+        ))} <button class="button"onClick={() => navigate(-1)} >
         Back
       </button>
+       </div>
+      
     </div>
   );
 }

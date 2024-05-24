@@ -28,11 +28,10 @@
   display: flex;
   flex-direction: column;
   justify-content: center;
-  
+
   background-repeat: no-repeat;
   background-position: center;
   text-align: center;
-  
 }
 
 .notfound-container a:hover {
@@ -56,6 +55,10 @@
   gap: 16px;
   margin-bottom: 20px;
   padding: 20px;
+  position: absolute;
+  top: 50%;
+  -ms-transform: translateY(-50%);
+  transform: translateY(-50%);
 }
 
 .categoria-item {
@@ -155,7 +158,6 @@ button:hover,
   height: 100vh;
   display: flex;
   flex-direction: column;
- 
 }
 .about-container {
   max-width: 800px;

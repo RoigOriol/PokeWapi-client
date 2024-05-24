@@ -3,6 +3,7 @@ import axios from "axios";
 import { useParams, useNavigate, Link } from "react-router-dom";
 import FormComments from "../components/FormComments";
 import { Spinner } from "react-bootstrap/esm";
+import Comment from "../components/Comment";
 
 function FichaCharacterPage() {
   const [character, setCharacter] = useState(null);
@@ -50,24 +51,13 @@ function FichaCharacterPage() {
     );
   }
 
-  const deleteComment = (id, pokemonId) => {
-    axios
-      .delete(`${import.meta.env.VITE_SERVER_URL}/chats/${id}`)
-      .then(() => {
-        getData();
-      })
-      .catch((error) => {
-        console.log(error);
-      }, []);
-  };
-
   return (
     <div className="body-ficha-caracter">
       <div className="ficha-caracter">
         <h3>
           {character.name.charAt(0).toUpperCase() + character.name.slice(1)}
         </h3>
-  
+
         <p>
           <strong>Height:</strong> {character.height / 10} m
         </p>
@@ -82,27 +72,14 @@ function FichaCharacterPage() {
           <strong>Type: </strong>
           {character.types[0].type.name}
         </p>
-  
+
         <img
           src={character.sprites.front_default}
           style={{ height: "200px" }}
           alt="pokemon"
         />
-  
-        <div className="card-comments">
-          {chats.map((eachComment, index) => (
-            <div key={index} data-id={eachComment.id}>
-              <p>{eachComment.comment}</p>
-              <button
-                class="button"
-                onClick={() => deleteComment(eachComment.id, character.name)}
-              >
-                Delete
-              </button>
-            </div>
-          ))}
-        </div>
-  
+
+        <Comment chats={chats} getData={getData} />
         <FormComments
           pokemonId={character.id}
           getData={getData}
@@ -113,14 +90,12 @@ function FichaCharacterPage() {
         <button class="button">All types</button>
       </Link>
       <br />
-  
+
       <button class="button" onClick={() => navigate(-1)}>
         Back
       </button>
     </div>
   );
-  
-  
 }
 
 export default FichaCharacterPage;
