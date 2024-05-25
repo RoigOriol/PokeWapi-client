@@ -68,10 +68,7 @@ function FichaCharacterPage() {
         <p>
           <strong>ID:</strong> {character.id}
         </p>
-        <p>
-          <strong>Type: </strong>
-          {character.types[0].type.name}
-        </p>
+       
 
         <img
           src={character.sprites.front_default}
@@ -87,11 +84,11 @@ function FichaCharacterPage() {
         />
       </div>
       <Link to="/CategoriasPage">
-        <button class="button">All types</button>
+        <button className="button">All types</button>
       </Link>
       <br />
 
-      <button class="button" onClick={() => navigate(-1)}>
+      <button className="button" onClick={() => navigate(-1)}>
         Back
       </button>
     </div>

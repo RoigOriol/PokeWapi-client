@@ -32,37 +32,38 @@ function CategoriasPage() {
 
 
   return (
-<div className="categorias-container">
-  <div className="categorias-grid">
-    {categorias.map((eachCategoria, i) => {
-      console.log(eachCategoria.name);
-      return (
-        <div key={i} className="categoria-item">
-        <Link to={`/pokemon-por-tipo/${eachCategoria.name}`} style={{ textDecoration: 'none', color: 'inherit' }}>
-          <div key={eachCategoria.name}>
-            <img src={`images/${eachCategoria.name}-logo.png`} alt="pokeball" width={60} />
-            <p><strong>{eachCategoria.name.charAt(0).toUpperCase() + eachCategoria.name.slice(1)}</strong></p>
+    <div className="categorias-container">
+      <div className="categorias-grid-types">
+        {categorias.map((eachCategoria, i) => (
+          <div key={i} className="categoria-item">
+            <Link to={`/pokemon-por-tipo/${eachCategoria.name}`} style={{ textDecoration: 'none', color: 'inherit' }}>
+              <div>
+                <img src={`images/${eachCategoria.name}-logo.png`} alt={`${eachCategoria.name} logo`} width={60} />
+                <p><strong>{eachCategoria.name.charAt(0).toUpperCase() + eachCategoria.name.slice(1)}</strong></p>
+              </div>
+            </Link>
           </div>
+        ))}
+      </div>
+
+      
+      <div className="home-button-container">
+        <Link to="/">
+          <button className="button">Home</button>
         </Link>
       </div>
-      
-      );
-    })}
-  </div>
-  <Link to="/">
-    <button className="button">Home</button>
-  </Link>
-  <div className="footer">
+
+
+
+      <div className="footer">
         <Link to="https://github.com/RoigOriol/PokeWapi-client" target="_blank">
-          <img src={github} alt="Left" className="footer-image-left" />
+          <img src={github} alt="GitHub" className="footer-image-left" />
         </Link>
         <Link to="/AboutPage">
-          <img src={about} alt="Right" className="footer-image-right" />
+          <img src={about} alt="About" className="footer-image-right" />
         </Link>
       </div>
-</div>
-
+    </div>
   );
 }
-
 export default CategoriasPage;

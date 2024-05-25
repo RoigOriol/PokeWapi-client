@@ -43,21 +43,21 @@ function CommentItem(props) {
         />
       )}
       {!isEditing ? (
-        <button class="button" onClick={() => setIsEditing(true)}>
-          Editar
+        <button className="button-sinfondo" onClick={() => setIsEditing(true)}>
+          🖊️
         </button>
       ) : (
         <>
-          <button class="button" onClick={() => saveComment(props.comment.id)}>
-            Guardar
+          <button className="button-sinfondo" onClick={() => saveComment(props.comment.id)}>
+          💾
           </button>
-          <button class="button" onClick={() => setIsEditing(false)}>
-            cerrar
+          <button className="button-sinfondo" onClick={() => setIsEditing(false)}>
+          ❌
           </button>
         </>
       )}
-      <button class="button" onClick={() => deleteComment(props.comment.id)}>
-        Delete
+      <button className="button-sinfondo" onClick={() => deleteComment(props.comment.id)}>
+      🗑️
       </button>
     </div>
   );
